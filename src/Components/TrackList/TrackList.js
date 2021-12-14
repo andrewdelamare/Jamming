@@ -1,6 +1,6 @@
 import React from "react";
-import 'src/Components/TrackList/Tracklist.css';
-import Track from 'src/Components/Track/Track.js';
+import './Tracklist.css';
+import {Track} from '../Track/Track.js';
 export class TrackList extends React.Component{
     constructor(props){
         super(props);
@@ -8,7 +8,7 @@ export class TrackList extends React.Component{
     }
     showTracks(){
         let tracks = this.props.tracks;
-        let trackList = tracks.map((track)=> <Track name={track.name} album={track.album} artist={track.artist} id={track.id}/>);
+        let trackList = tracks.map((track)=> <Track track={track} onAdd={this.props.onAdd}/>);
         return(
             <ul>{trackList}</ul>
         )

@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import Playlist from 'src/Components/Playlist/Playlist.js';
-import SearchBar from 'src/Components/SearchBar/SearchBar.js';
-import SearchResults from 'src/Components/SearchResults/SearchResults.js';
+import {Playlist} from '../Playlist/Playlist.js';
+import {SearchBar} from '../SearchBar/SearchBar.js';
+import {SearchResults} from '../SearchResults/SearchResults.js';
 
-class App extends React.Component {
+export class App extends React.Component {
     constructor(props){
     super(props);
     this.state = {
@@ -20,17 +20,24 @@ class App extends React.Component {
         {name: 'song3', artist: 'no3', album: 'blank3', id: '03'}, 
         {name: 'song4', artist: 'no4', album: 'blank4', id: '04'}]
     };
+    this.addTrack = this.addTrack.bind(this);
   }
-
+  addTrack(track){
+    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+      return;
+    }else{
+      this.state.playlistTracks.push(track);
+    }
+  }
   render(){
   return (
     <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          {/* Add a SearchBar component */}
-            <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} />
-            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
+          <SearchBar />
+          <div className="App-playlist">
+          <SearchResults searchResults={this.state.searchResults} onAdd={this.state.playlistTracks}/>
+          <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
       </div>

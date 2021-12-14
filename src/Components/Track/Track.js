@@ -1,5 +1,5 @@
 import React from "react";
-
+import 'src/Components/Track/Track.css';
 export class Track extends React.Component{
     render(){
         return(

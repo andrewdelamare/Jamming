@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class searchResults extends React.Component {
+export class SearchResults extends React.Component {
     render(){
         return(
             <div className="SearchResults">

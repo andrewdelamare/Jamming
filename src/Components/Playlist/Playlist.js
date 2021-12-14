@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export class playlist extends React.Component{
+export class Playlist extends React.Component{
     render(){
         return(
             <div class="Playlist">

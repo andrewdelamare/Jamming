@@ -1,6 +1,11 @@
 import React from "react";
 import 'src/Components/Track/Track.css';
 export class Track extends React.Component{
+    renderAction(){
+        let content;
+        this.props.isRemoval === true ? content = '-' : content = '+';
+        return(<button className="Track-action">{content}</button>);
+    }
     render(){
         return(
             <div className="Track">

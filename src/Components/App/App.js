@@ -33,12 +33,9 @@ export class App extends React.Component {
     }
   }
   removeTrack(track){
-    if (this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
-      let index = this.state.playlistTracks.findIndex(track);
-      this.setState(this.playlistTracks.splice(index,1));
-    }else{
-      return;
-    }
+    let tracks = this.state.playlistTracks;
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id)
+    this.setState({playlistTracks: tracks})
   }
   render(){
   return (

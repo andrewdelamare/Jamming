@@ -8,7 +8,7 @@ export class TrackList extends React.Component{
     }
     showTracks(){
         let tracks = this.props.tracks;
-        let trackList = tracks.map((track)=> <Track track={track} onAdd={this.props.onAdd}/>);
+        let trackList = tracks.map((track)=> <Track track={track} onAdd={this.props.onAdd} onRemove={this.props.onRemove} isRemoval={this.props.isRemoval} />);
         return(
             <ul>{trackList}</ul>
         )
